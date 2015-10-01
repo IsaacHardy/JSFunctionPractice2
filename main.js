@@ -30,52 +30,66 @@ maxOfThree(1, 2, 4);
 // Write a function that takes a character (i.e. a string of length 1) and returns true if it is a vowel, false otherwise.
 // ---------------------
 
-function isVowel(char){
-    var string = char[0];
-    if (string === 'a') {
-      return true;
-    } else if (string === 'e') {
-      return true;
-    } else if (string === 'i') {
-      return true;
-    } else if (string === 'o') {
-      return true;
-    } else if (string === 'u') {
-      return true;
-    } else if (string === 'A') {
-      return true;
-    } else if (string === 'E') {
-      return true;
-    } else if (string === 'I') {
-      return true;
-    } else if (string === 'O') {
-      return true;
-    } else if (string === 'U') {
-      return true;
-    } else {
-      return false;
-    }
-};
+// function isVowel(char){
+//     var string = char[0];
+//     if (string === 'a') {
+//       return true;
+//     } else if (string === 'e') {
+//       return true;
+//     } else if (string === 'i') {
+//       return true;
+//     } else if (string === 'o') {
+//       return true;
+//     } else if (string === 'u') {
+//       return true;
+//     } else if (string === 'A') {
+//       return true;
+//     } else if (string === 'E') {
+//       return true;
+//     } else if (string === 'I') {
+//       return true;
+//     } else if (string === 'O') {
+//       return true;
+//     } else if (string === 'U') {
+//       return true;
+//     } else {
+//       return false;
+//     }
+// };
 
-isVowel('Apple');
-isVowel('apple');
-isVowel('Flapple');
+// isVowel('Apple');
+// isVowel('apple');
+// isVowel('Flapple');
 
-// function isVowel( char ) {
-//   if ('aeiou'.indexOf(char) !== -1) {
-//     return true;
-//   } else {
-//     return false;
-//   }
-// }  
+function isVowel( char ) {
+  if ('aeiou'.indexOf(char) !== -1) {
+    return true;
+  }
+  return false;
+}  
 
 // ---------------------
 // Write a function translate() that will translate a text into "rÃ¶varsprÃ¥ket". That is, double every consonant and place an occurrence of "o" in between. For example, translate("this is fun") should return the string "tothohisos isos fofunon".
 // ---------------------
 
-function translate(text) {
+function rovarspraket (phrase) {
 
-};
+  var chars = phrase.split('');
+  var finalPhrase = [];
+
+  chars.forEach( function (char) {
+    if (!isVowel(char) && char !== ' ') {
+      finalPhrase.push(char + 'o' + char);
+    } else {
+      finalPhrase.push(char);
+    }
+  });
+
+  return finalPhrase.join('');
+
+}
+
+rovarspraket('the dog barks');
 
 // ---------------------
 // Define a function reverse() that computes the reversal of a string. For example, reverse("jag testar") should return the string "ratset gaj".
@@ -87,9 +101,11 @@ function reverse(string){
 };
 
 reverse('hello test');
+
 // ---------------------
 // Write a function findLongestWord() that takes an array of words and returns the length of the longest one.
 // ---------------------
+
 var longestWord = '';
 
 ['hello', 'hi', 'yo', 'shalome'].forEach(function (word){
@@ -100,22 +116,35 @@ var longestWord = '';
 
 });
 
-
-
 // ---------------------
 // Write a function filterLongWords() that takes an array of words and an integer i and returns the array of words that are longer than i.
 // ---------------------
-var longWords = [{name: 'isaac'}, {name: 'hello'},{name:  'bigwords'},{name:  'verylittlewords'}];
-var i = 6;
 
-longWords.filter(function (longWords){ 
-  return longWords.name.length > i;
-});
+// var longWords = [{name: 'isaac'}, {name: 'hello'},{name:  'bigwords'},{name:  'verylittlewords'}];
+// var i = 6;
+
+// longWords.filter(function (longWords){ 
+//   return longWords.name.length > i;
+// });
+
+function filterLongWords(words, i) {
+
+  var x = words.filter( function(word) {
+    return word.length > i;
+  });
+  return x;
+}
+
+var animals = ['dog', 'cat', 'mouse', 'gorilla', 'lion', 'monkey'];
+
+filterLongWords(animals, 4);
 
 // ---------------------
 // Write a function charFreq() that takes a string and builds a frequency listing of the characters contained in it. Represent the frequency listing as a Javascript object. Try it with something like charFreq("abbabcbdbabdbdbabababcbcbab").
 // ---------------------
 
 function charFreq(string){
-    //...
+    
+
+
 }
